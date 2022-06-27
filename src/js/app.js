@@ -1,18 +1,19 @@
 import { RandomGenerator } from './random-generator';
 import '../css/main.scss';
+import 'jquery';
 
-const outputParagraph = document.querySelector('#outputParagraph');
+const outputParagraph = $('#outputParagraph');
 
 const outputRandomInt = () => {
-    outputParagraph.textContent = RandomGenerator.randomInteger();
+    outputParagraph.text(RandomGenerator.randomInteger());
 };
 
 const outputRandomRange = () => {
-    outputParagraph.textContent = RandomGenerator.randomRange(1, 500);
+    outputParagraph.text(RandomGenerator.randomInteger(1, 500));
 };
 
-const buttonRndInt = document.querySelector('#randomInt');
-const buttonRndRange = document.querySelector('#randomRange');
+const buttonRndInt = jQuery('#randomInt');
+const buttonRndRange = $('#randomRange');
 
-buttonRndInt.addEventListener('click', outputRandomInt);
-buttonRndRange.addEventListener('click', outputRandomRange);
+buttonRndInt.click(outputRandomInt);
+buttonRndRange.click(outputRandomRange);
