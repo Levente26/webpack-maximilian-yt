@@ -1,4 +1,10 @@
-var showSecret = false;
+import { secretButton, secretParagraph } from './dom-loader';
+import '../css/input-elements.css';
+import '../css/main.css';
+
+let showSecret = false;
+
+console.log('hi webpack5');
 
 secretButton.addEventListener('click', toggleSecretState);
 updateSecretParagraph();
