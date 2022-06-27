@@ -1,3 +1,6 @@
+import { RandomGenerator } from './random-generator';
+import '../css/main.scss';
+
 const outputParagraph = document.querySelector('#outputParagraph');
 
 const outputRandomInt = () => {
