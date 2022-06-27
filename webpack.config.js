@@ -3,7 +3,9 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/js/app.js',
+    entry: {
+        app: './src/js/app.js',
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
@@ -42,7 +44,13 @@ module.exports = {
     },
     plugins: [
         new htmlWebpackPlugin({
+            filename: 'index.html',
             template: 'src/index.html'
+        }),
+        new htmlWebpackPlugin({
+            filename: 'users.html',
+            template: 'src/users.html',
+            chunks: []
         }),
         new CleanWebpackPlugin(),
     ]
