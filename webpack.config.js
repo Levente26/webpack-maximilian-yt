@@ -1,11 +1,13 @@
 const path = require('path');
+const htmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/js/app.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath: '/dist'
+        // publicPath: '/dist'
     },
     module: {
         rules: [
@@ -27,7 +29,21 @@ module.exports = {
                     // Compiles Sass to CSS
                     "sass-loader",
                 ],
+            },
+            {
+                test: /\.html$/,
+                use: ['html-loader']
+            },
+            {
+                test: /\.(jpeg|png|jpg)$/i,
+                type: 'asset/resource',
             }
         ]
-    }
+    },
+    plugins: [
+        new htmlWebpackPlugin({
+            template: 'src/index.html'
+        }),
+        new CleanWebpackPlugin(),
+    ]
 };
